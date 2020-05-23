@@ -1,18 +1,20 @@
-Setup VPC
-Launch EC2
-Install Airflow in EC2
-Place data in S3
-Create Crawler and read schema to Data Catalog (Athena)
-Launch RDS MySQL instance
-Launch EMR
-Write sprak to read data from S3 and write to RDS
-Trigger Spark job from Airflow
-    Launch EMR
-    Run PySpark
-    Decommission EMR
-Clean up
-Write CFT for the POC -> whole or VPC/EC2/EMR
+## POC to setup VPC & launch EC2 using a simple CFT ##
 
+#### Steps ####
+Markup: * Setup VPC
+        * Launch EC2
+        * Install Airflow in EC2
+        * Place data in S3
+        * Create Crawler and read schema to Data Catalog (Athena)
+        * Launch RDS MySQL instance
+        * Launch EMR
+        * Write sprak to read data from S3 and write to RDS
+        * Trigger Spark job from Airflow
+            * Launch EMR
+            * Run PySpark
+            * Decommission EMR
+        * Clean up
+        * Write CFT for the POC -> whole or VPC/EC2/EMR
 
 
 1. Copy CFT to S3
