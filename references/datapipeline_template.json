@@ -1,0 +1,69 @@
+{
+  "objects": [
+    {
+      "output": {
+        "ref": "DataNodeId_Z8iDO"
+      },
+      "input": {
+        "ref": "DataNodeId_hEUzs"
+      },
+      "name": "DefaultCopyActivity01",
+      "runsOn": {
+        "ref": "ResourceId_oR8hY"
+      },
+      "id": "CopyActivityId_8zaDw",
+      "type": "CopyActivity"
+    },
+    {
+      "resourceRole": "DataPipelineDefaultResourceRole",
+      "role": "DataPipelineDefaultRole",
+      "name": "DefaultResource1",
+      "id": "ResourceId_oR8hY",
+      "type": "Ec2Resource",
+      "terminateAfter": "1 Hour"
+    },
+    {
+      "*password": "xxxxxxxxx",
+      "name": "DefaultDatabase1",
+      "id": "DatabaseId_BWxRr",
+      "type": "RdsDatabase",
+      "region": "eu-central-1",
+      "rdsInstanceId": "aqueduct30v05.cgpnumwmfcqc.eu-central-1.rds.amazonaws.com",
+      "username": "xxxx"
+    },
+    {
+      "name": "DefaultDataFormat1",
+      "id": "DataFormatId_wORsu",
+      "type": "CSV"
+    },
+    {
+      "database": {
+        "ref": "DatabaseId_BWxRr"
+      },
+      "name": "DefaultDataNode2",
+      "id": "DataNodeId_hEUzs",
+      "type": "SqlDataNode",
+      "table": "y2018m07d12_rh_ws_categorization_label_postgis_v01_v04",
+      "selectQuery": "SELECT * FROM y2018m07d12_rh_ws_categorization_label_postgis_v01_v04 LIMIT 100"
+    },
+    {
+      "failureAndRerunMode": "CASCADE",
+      "resourceRole": "DataPipelineDefaultResourceRole",
+      "role": "DataPipelineDefaultRole",
+      "pipelineLogUri": "s3://rutgerhofste-data-pipeline/logs",
+      "scheduleType": "ONDEMAND",
+      "name": "Default",
+      "id": "Default"
+    },
+    {
+      "dataFormat": {
+        "ref": "DataFormatId_wORsu"
+      },
+      "filePath": "s3://rutgerhofste-data-pipeline/test",
+      "name": "DefaultDataNode1",
+      "id": "DataNodeId_Z8iDO",
+      "type": "S3DataNode"
+    }
+  ],
+  "parameters": []
+}
